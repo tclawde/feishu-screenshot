@@ -1,6 +1,6 @@
 # Feishu Screenshot Skill for OpenClaw
 
-> Capture screenshot and send directly to Feishu chat.
+> Custom OpenClaw skill: capture screenshot and send directly to Feishu chat.
 
 ## Usage
 

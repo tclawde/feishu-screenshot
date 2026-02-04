@@ -2,40 +2,43 @@
 
 > Custom OpenClaw skill: capture screenshot and send directly to Feishu chat.
 
-## Usage
+## Structure
 
-### Full Screen
-
-```bash
-# Capture
-nodes action:run node:"Apple的Mac mini" command:'screencapture -t png -x /tmp/desktop.png'
-
-# Send
-message action:send channel:feishu image:/tmp/desktop.png
+```
+scripts/
+├── send_image.cjs       # 底层发送模块
+├── feishu-capture.sh    # 一键截图
+├── feishu-send.sh       # 发送指定文件到飞书
+└── feishu-screenshot.sh # 一键截图+发送（组合脚本）
 ```
 
-### Selection Mode
+## Quick Start
 
 ```bash
-# Interactive selection
-nodes action:run node:"Apple的Mac mini" command:'screencapture -t png -ix /tmp/sel.png'
+cd ~/.openclaw/skills/feishu-screenshot/scripts
 
-# Send with caption
-message action:send channel:feishu image:/tmp/sel.png caption:"捕获的截图"
-```
+# 一键截屏并发送
+./feishu-screenshot.sh "截图描述"
 
-### One-liner
-
-```bash
-nodes action:run node:"Apple的Mac mini" command:'screencapture -t png -x /tmp/desktop.png' && message action:send channel:feishu image:/tmp/desktop.png
+# 或分步骤
+./feishu-capture.sh           # 截图
+./feishu-send.sh /tmp/xxx.png # 发送
 ```
 
 ## Requirements
 
-- macOS (nodes tool)
-- Feishu channel configured
-- nodes.enabled = true
+- macOS
+- Node.js + npm install axios form-data
+- Feishu App credentials (FEISHU_APP_ID, FEISHU_APP_SECRET, FEISHU_RECEIVER_ID)
+
+## Install
+
+```bash
+cd ~/.openclaw/skills/feishu-screenshot/scripts
+npm install
+```
 
 ## License
 
 MIT
+

@@ -1,0 +1,18 @@
+{
+  "name": "feishu-screenshot",
+  "version": "1.0.0",
+  "description": "Capture screenshot and send to Feishu chat",
+  "main": "scripts/send_image.cjs",
+  "scripts": {
+    "capture": "./scripts/feishu-capture.sh",
+    "send": "./scripts/feishu-send.sh",
+    "screenshot": "./scripts/feishu-screenshot.sh"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "form-data": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
